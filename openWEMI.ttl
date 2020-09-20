@@ -1,0 +1,767 @@
+@prefix dc11: <http://purl.org/dc/elements/1.1/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ns0: <http://web.resource.org/cc/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+
+<http://creativecommons.org/licenses/by/2.0/uk/>
+  a <http://web.resource.org/cc/License> ;
+  ns0:permits ns0:Reproduction, ns0:Distribution, ns0:DerivativeWorks ;
+  ns0:requires ns0:Notice, ns0:Attribution .
+
+dc11:format a owl:ObjectProperty .
+dc:hasFormat a owl:ObjectProperty .
+dc:isVersionOf a owl:AnnotationProperty .
+dc:replaces a owl:AnnotationProperty .
+dc11:type a owl:AnnotationProperty .
+dc11:rights a owl:DatatypeProperty .
+dc11:date a owl:DatatypeProperty .
+dc11:identifier a owl:DatatypeProperty .
+dc11:contributor a owl:DatatypeProperty .
+dc11:title a owl:DatatypeProperty .
+<http://purl.org/vocab/vann/preferredNamespacePrefix> a owl:AnnotationProperty .
+<http://purl.org/vocab/vann/preferredNamespaceUri> a owl:AnnotationProperty .
+<http://purl.org/vocab/vann/changes> a owl:AnnotationProperty .
+rdf:value a owl:DatatypeProperty .
+<http://www.isi.edu/~pan/damltime/time-entry.owl#Event> a owl:Class .
+geo:SpatialThing a owl:Class .
+<http://xmlns.com/wordnet/1.6/Work~2> a owl:Class .
+dc:IMT a owl:Class .
+skos:Concept a owl:Class .
+<http://purl.org/dc/dcmitype/Text> a owl:Class .
+ns0:License a owl:Class .
+ns0:Permission a owl:Class .
+ns0:Requirement a owl:Class .
+ns0:permits a owl:ObjectProperty .
+ns0:requires a owl:ObjectProperty .
+ns0:license a owl:AnnotationProperty .
+ns0:Reproduction a ns0:Permission .
+ns0:Distribution a ns0:Permission .
+ns0:Notice a ns0:Requirement .
+ns0:Attribution a ns0:Requirement .
+ns0:DerivativeWorks a ns0:Permission .
+
+<http://purl.org/vocab/frbr/core#Endeavour>
+  a owl:Class ;
+  rdfs:label "endeavour"@en ;
+  skos:definition "Any of the products of artistic or creative endeavour."@en ;
+  rdfs:comment "This class represents any one of the FRBR group one entities."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:disjointWith <http://purl.org/vocab/frbr/core#ResponsibleEntity>, <http://purl.org/vocab/frbr/core#Subject> ;
+  owl:equivalentClass [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Expression>
+     <http://purl.org/vocab/frbr/core#Item>
+     <http://purl.org/vocab/frbr/core#Manifestation>
+     <http://purl.org/vocab/frbr/core#Work>
+   )
+  ] ;
+
+<http://purl.org/vocab/frbr/core#Expression>
+  a owl:Class ;
+  rdfs:label "expression"@en ;
+  skos:definition "A realization of a single work usually in a physical form."@en ;
+  rdfs:comment "This class corresponds to the FRBR group one entity 'Expression'."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:subClassOf <http://purl.org/vocab/frbr/core#Endeavour>  .
+
+<http://purl.org/vocab/frbr/core#Item>
+  a owl:Class ;
+  rdfs:label "item"@en ;
+  skos:definition "An exemplar of a single manifestation."@en ;
+  rdfs:comment "This class corresponds to the FRBR group one entity 'Item'."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:subClassOf <http://purl.org/vocab/frbr/core#Endeavour>  .
+
+<http://purl.org/vocab/frbr/core#Manifestation>
+  a owl:Class ;
+  rdfs:label "manifestation"@en ;
+  skos:definition "The physical embodiment of one or more expressions."@en ;
+  rdfs:comment "This class corresponds to the FRBR group one entity 'Manifestation'."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:subClassOf <http://purl.org/vocab/frbr/core#Endeavour> .
+
+<http://purl.org/vocab/frbr/core#Work>
+  a owl:Class ;
+  rdfs:label "work"@en ;
+  skos:definition "An abstract notion of an artistic or intellectual creation."@en ;
+  rdfs:comment "This class corresponds to the FRBR group one entity 'Work'."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:subClassOf <http://purl.org/vocab/frbr/core#Endeavour> .
+
+
+<http://purl.org/vocab/frbr/core#relatedEndeavour>
+  a owl:ObjectProperty ;
+  rdfs:label "related endeavour"@en ;
+  skos:definition "Another endeavour that is related in some way to an endeavour."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Endeavour> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Endeavour> .
+
+<http://purl.org/vocab/frbr/core#realization>
+  a owl:ObjectProperty ;
+  rdfs:label "realization"@en ;
+  skos:definition "An expression that is an intellectual or artistic realization of a work."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Work> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Expression> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#realizationOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour>  .
+
+<http://purl.org/vocab/frbr/core#realizationOf>
+  a owl:ObjectProperty ;
+  rdfs:label "realization of"@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  skos:definition "The work that has been realized by an expression."@en ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Work> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#realization> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> .
+
+<http://purl.org/vocab/frbr/core#embodiment>
+  a owl:ObjectProperty ;
+  rdfs:label "embodiment"@en ;
+  skos:definition "A manifestation that embodies an expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Manifestation> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#embodimentOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour>  .
+
+<http://purl.org/vocab/frbr/core#embodimentOf>
+  a owl:ObjectProperty ;
+  rdfs:label "embodiment of"@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  skos:definition "An expression that is embodied by a manifestation."@en ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Manifestation> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Expression> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#embodiment> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour>  .
+
+<http://purl.org/vocab/frbr/core#exemplar>
+  a owl:ObjectProperty ;
+  rdfs:label "exemplar"@en ;
+  skos:definition "An item that is an exemplar of a manifestation."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Manifestation> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Item> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#exemplarOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour>  .
+
+<http://purl.org/vocab/frbr/core#exemplarOf>
+  a owl:ObjectProperty ;
+  rdfs:label "exemplar of"@en ;
+  skos:definition "The manifestation that is exemplified by a item."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Item> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Manifestation> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#exemplar> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour>  .
+
+<http://purl.org/vocab/frbr/core#reproduction>
+  a owl:ObjectProperty ;
+  rdfs:label "reproduction"@en ;
+  skos:definition "A reproduction of a manifestation or item."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#reproductionOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Manifestation>
+     <http://purl.org/vocab/frbr/core#Item>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Manifestation>
+     <http://purl.org/vocab/frbr/core#Item>
+   )
+  ] .
+
+<http://purl.org/vocab/frbr/core#reproductionOf>
+  a owl:ObjectProperty ;
+  rdfs:label "reproduction of"@en ;
+  skos:definition "A manifestation or item that is reproduced."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#reproduction> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Manifestation>
+     <http://purl.org/vocab/frbr/core#Item>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Manifestation>
+     <http://purl.org/vocab/frbr/core#Item>
+   )
+  ] .
+
+<http://purl.org/vocab/frbr/core#successor>
+  a owl:ObjectProperty ;
+  rdfs:label "successor"@en ;
+  skos:definition "A successor to a work or expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#successorOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ]  .
+
+<http://purl.org/vocab/frbr/core#successorOf>
+  a owl:ObjectProperty ;
+  rdfs:label "successor of"@en ;
+  skos:definition "A work or expression that is succeeded."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#successor> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> .
+
+<http://purl.org/vocab/frbr/core#supplement>
+  a owl:ObjectProperty ;
+  rdfs:label "supplement"@en ;
+  skos:definition "A supplement to a work or expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#supplementOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] .
+
+<http://purl.org/vocab/frbr/core#supplementOf>
+  a owl:ObjectProperty ;
+  rdfs:label "supplement of"@en ;
+  skos:definition "A work or expression that is supplemented."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#supplement> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] .
+
+<http://purl.org/vocab/frbr/core#complement>
+  a owl:ObjectProperty ;
+  rdfs:label "complement"@en ;
+  skos:definition "A complement to a work or expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#complementOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ]  .
+
+<http://purl.org/vocab/frbr/core#complementOf>
+  a owl:ObjectProperty ;
+  rdfs:label "complement of"@en ;
+  skos:definition "A work or expression that is complemented."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#complement> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ]  .
+
+<http://purl.org/vocab/frbr/core#summarization>
+  a owl:ObjectProperty ;
+  rdfs:label "summarization"@en ;
+  skos:definition "A summarization of a work or expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#summarizationOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] .
+
+<http://purl.org/vocab/frbr/core#summarizationOf>
+  a owl:ObjectProperty ;
+  rdfs:label "summarization of"@en ;
+  skos:definition "A work or expression that is summarized."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#summarization> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ]  .
+
+<http://purl.org/vocab/frbr/core#adaption>
+  a owl:ObjectProperty ;
+  rdfs:label "adaption"@en ;
+  skos:definition "An adaption of a work or expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#adaptionOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] .
+
+<http://purl.org/vocab/frbr/core#adaptionOf>
+  a owl:ObjectProperty ;
+  rdfs:label "adaption of"@en ;
+  skos:definition "A work or expression that is adapted."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#adaption> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] .
+
+<http://purl.org/vocab/frbr/core#transformation>
+  a owl:ObjectProperty ;
+  rdfs:label "transformation"@en ;
+  skos:definition "A transformation of a work or expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#transformationOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ]  .
+
+<http://purl.org/vocab/frbr/core#transformationOf>
+  a owl:ObjectProperty ;
+  rdfs:label "transformation of"@en ;
+  skos:definition "A work or expression that is transformed."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#transformation> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] .
+
+<http://purl.org/vocab/frbr/core#imitation>
+  a owl:ObjectProperty ;
+  rdfs:label "imitation"@en ;
+  skos:definition "An imitation of a work or expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#imitationOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ]  .
+
+<http://purl.org/vocab/frbr/core#imitationOf>
+  a owl:ObjectProperty ;
+  rdfs:label "imitation of"@en ;
+  skos:definition "A work or expression that is imitated."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#imitation> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ] ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Work>
+     <http://purl.org/vocab/frbr/core#Expression>
+   )
+  ]  .
+
+<http://purl.org/vocab/frbr/core#abridgement>
+  a owl:ObjectProperty ;
+  rdfs:label "abridgement"@en ;
+  skos:definition "An abridgment of an expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#abridgementOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Expression>  .
+
+<http://purl.org/vocab/frbr/core#abridgementOf>
+  a owl:ObjectProperty ;
+  rdfs:label "abridgement of"@en ;
+  skos:definition "An expression that is abridged."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#abridgement> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Expression> .
+
+<http://purl.org/vocab/frbr/core#revision>
+  a owl:ObjectProperty ;
+  rdfs:label "revision"@en ;
+  skos:definition "A revision of an expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#revisionOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Expression>  .
+
+<http://purl.org/vocab/frbr/core#revisionOf>
+  a owl:ObjectProperty ;
+  rdfs:label "revision of"@en ;
+  skos:definition "An expression that is revised."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#revision> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour>  .
+
+<http://purl.org/vocab/frbr/core#translation>
+  a owl:ObjectProperty ;
+  rdfs:label "translation"@en ;
+  skos:definition "A translation of an expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#translationOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Expression>  .
+
+<http://purl.org/vocab/frbr/core#translationOf>
+  a owl:ObjectProperty ;
+  rdfs:label "translation of"@en ;
+  skos:definition "An expression that is translated."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#translation> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Expression>  .
+
+<http://purl.org/vocab/frbr/core#arrangement>
+  a owl:ObjectProperty ;
+  rdfs:label "arrangement"@en ;
+  skos:definition "An arrangement of an expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#arrangementOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Expression>  .
+
+<http://purl.org/vocab/frbr/core#arrangementOf>
+  a owl:ObjectProperty ;
+  rdfs:label "arrangement of"@en ;
+  skos:definition "An expression that is arranged."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#arrangement> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Expression> .
+
+<http://purl.org/vocab/frbr/core#alternate>
+  a owl:ObjectProperty ;
+  rdfs:label "alternate"@en ;
+  skos:definition "An alternative to a manifestation."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Manifestation> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Manifestation> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#alternateOf> ;
+  dc:issued "2005-08-10" .
+
+<http://purl.org/vocab/frbr/core#alternateOf>
+  a owl:ObjectProperty ;
+  rdfs:label "alternate of"@en ;
+  skos:definition "A manifestation that is alternated."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Manifestation> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Manifestation> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#alternate> .
+
+<http://purl.org/vocab/frbr/core#reconfiguration>
+  a owl:ObjectProperty ;
+  rdfs:label "reconfiguration"@en ;
+  skos:definition "A recongifuration of an item."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Item> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Item> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#reconfigurationOf> .
+
+<http://purl.org/vocab/frbr/core#reconfigurationOf>
+  a owl:ObjectProperty ;
+  rdfs:label "reconfiguration of"@en ;
+  skos:definition "An item that is reconfigured."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Item> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Item> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#reconfiguration>  .
+
+<http://purl.org/vocab/frbr/core#part>
+  a owl:ObjectProperty ;
+  rdfs:label "part"@en ;
+  skos:definition "A part of an endeavour."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#partOf> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour>  .
+
+<http://purl.org/vocab/frbr/core#partOf>
+  a owl:ObjectProperty ;
+  rdfs:label "part of"@en ;
+  skos:definition "An endeavour incorporating an endeavour."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#part> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#relatedEndeavour>  .
+
+<http://purl.org/vocab/frbr/core#responsibleEntity>
+  a owl:ObjectProperty ;
+  rdfs:label "responsible entity"@en ;
+  skos:definition "An entity in some way responsible for an endeavour."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Endeavour> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#ResponsibleEntity> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#responsibleEntityOf>  .
+
+<http://purl.org/vocab/frbr/core#responsibleEntityOf>
+  a owl:ObjectProperty ;
+  rdfs:label "responsible entity of"@en ;
+  skos:definition "An endeavour that is the responsibility of an entity."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#ResponsibleEntity> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Endeavour> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#responsibleEntity>  .
+
+<http://purl.org/vocab/frbr/core#creator>
+  a owl:ObjectProperty ;
+  rdfs:label "creator"@en ;
+  skos:definition "An entity in some way responsible for the creation of a work."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Work> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#ResponsibleEntity> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#responsibleEntity> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#creatorOf> .
+
+<http://purl.org/vocab/frbr/core#creatorOf>
+  a owl:ObjectProperty ;
+  rdfs:label "creator of"@en ;
+  skos:definition "A work that was in some way created by of an entity."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#ResponsibleEntity> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Work> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#responsibleEntityOf> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#creator> .
+
+<http://purl.org/vocab/frbr/core#realizer>
+  a owl:ObjectProperty ;
+  rdfs:label "realizer"@en ;
+  skos:definition "An entity in some way responsible for realizing an expression."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#ResponsibleEntity> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#responsibleEntity> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#realizerOf>.
+
+<http://purl.org/vocab/frbr/core#realizerOf>
+  a owl:ObjectProperty ;
+  rdfs:label "realizer of"@en ;
+  skos:definition "An expression that was in some way realized by an entity."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#ResponsibleEntity> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Expression> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#responsibleEntityOf> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#realizer> .
+
+<http://purl.org/vocab/frbr/core#producer>
+  a owl:ObjectProperty ;
+  rdfs:label "producer"@en ;
+  skos:definition "An entity in some way responsible for producing a manifestation."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Manifestation> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#ResponsibleEntity> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#responsibleEntity> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#producerOf> .
+
+<http://purl.org/vocab/frbr/core#producerOf>
+  a owl:ObjectProperty ;
+  rdfs:label "producer of"@en ;
+  skos:definition "A manifestation that was in some way produced an entity."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#ResponsibleEntity> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Manifestation> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#responsibleEntityOf> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#producer>  .
+
+<http://purl.org/vocab/frbr/core#owner>
+  a owl:ObjectProperty ;
+  rdfs:label "owner"@en ;
+  skos:definition "An entity that owns an item."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Item> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#ResponsibleEntity> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#responsibleEntity> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#ownerOf> .
+
+<http://purl.org/vocab/frbr/core#ownerOf>
+  a owl:ObjectProperty ;
+  rdfs:label "owner of"@en ;
+  skos:definition "An item that is in some way owned an entity."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#ResponsibleEntity> ;
+  rdfs:range <http://purl.org/vocab/frbr/core#Item> ;
+  rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#responsibleEntityOf> ;
+  owl:inverseOf <http://purl.org/vocab/frbr/core#owner>  .
+
+<http://purl.org/vocab/frbr/core#subject>
+  a owl:ObjectProperty ;
+  rdfs:label "subject"@en ;
+  skos:definition "The subject of a work."@en ;
+  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
+  rdfs:domain <http://purl.org/vocab/frbr/core#Work> ;
+  rdfs:range [
+    a owl:Class ;
+    owl:unionOf (
+     <http://purl.org/vocab/frbr/core#Endeavour>
+     <http://purl.org/vocab/frbr/core#ResponsibleEntity>
+     <http://purl.org/vocab/frbr/core#Subject>
+   )
+  ] .
