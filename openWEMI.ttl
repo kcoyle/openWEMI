@@ -9,42 +9,6 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
 
-<http://creativecommons.org/licenses/by/2.0/uk/>
-  a <http://web.resource.org/cc/License> ;
-  ns0:permits ns0:Reproduction, ns0:Distribution, ns0:DerivativeWorks ;
-  ns0:requires ns0:Notice, ns0:Attribution .
-
-dc11:format a owl:ObjectProperty .
-dc:hasFormat a owl:ObjectProperty .
-dc:isVersionOf a owl:AnnotationProperty .
-dc:replaces a owl:AnnotationProperty .
-dc11:type a owl:AnnotationProperty .
-dc11:rights a owl:DatatypeProperty .
-dc11:date a owl:DatatypeProperty .
-dc11:identifier a owl:DatatypeProperty .
-dc11:contributor a owl:DatatypeProperty .
-dc11:title a owl:DatatypeProperty .
-<http://purl.org/vocab/vann/preferredNamespacePrefix> a owl:AnnotationProperty .
-<http://purl.org/vocab/vann/preferredNamespaceUri> a owl:AnnotationProperty .
-<http://purl.org/vocab/vann/changes> a owl:AnnotationProperty .
-rdf:value a owl:DatatypeProperty .
-<http://www.isi.edu/~pan/damltime/time-entry.owl#Event> a owl:Class .
-geo:SpatialThing a owl:Class .
-<http://xmlns.com/wordnet/1.6/Work~2> a owl:Class .
-dc:IMT a owl:Class .
-skos:Concept a owl:Class .
-<http://purl.org/dc/dcmitype/Text> a owl:Class .
-ns0:License a owl:Class .
-ns0:Permission a owl:Class .
-ns0:Requirement a owl:Class .
-ns0:permits a owl:ObjectProperty .
-ns0:requires a owl:ObjectProperty .
-ns0:license a owl:AnnotationProperty .
-ns0:Reproduction a ns0:Permission .
-ns0:Distribution a ns0:Permission .
-ns0:Notice a ns0:Requirement .
-ns0:Attribution a ns0:Requirement .
-ns0:DerivativeWorks a ns0:Permission .
 
 <http://purl.org/vocab/frbr/core#Endeavour>
   a owl:Class ;
@@ -61,7 +25,7 @@ ns0:DerivativeWorks a ns0:Permission .
      <http://purl.org/vocab/frbr/core#Manifestation>
      <http://purl.org/vocab/frbr/core#Work>
    )
-  ] ;
+  ] .
 
 <http://purl.org/vocab/frbr/core#Expression>
   a owl:Class ;
