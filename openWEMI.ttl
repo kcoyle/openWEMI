@@ -715,17 +715,3 @@
   rdfs:subPropertyOf <http://purl.org/vocab/frbr/core#responsibleEntityOf> ;
   owl:inverseOf <http://purl.org/vocab/frbr/core#owner>  .
 
-<http://purl.org/vocab/frbr/core#subject>
-  a owl:ObjectProperty ;
-  rdfs:label "subject"@en ;
-  skos:definition "The subject of a work."@en ;
-  rdfs:isDefinedBy <http://purl.org/vocab/frbr/core#> ;
-  rdfs:domain <http://purl.org/vocab/frbr/core#Work> ;
-  rdfs:range [
-    a owl:Class ;
-    owl:unionOf (
-     <http://purl.org/vocab/frbr/core#Endeavour>
-     <http://purl.org/vocab/frbr/core#ResponsibleEntity>
-     <http://purl.org/vocab/frbr/core#Subject>
-   )
-  ] .
