@@ -52,8 +52,8 @@
   rdfs:label "responsible entity"@en ;
   skos:definition "One responsible for the creation, production, distribution or maintenance of a created entity."@en  .
   
-<http://example.org/openWEMI#RelatedEndeavor>
-  a owl:Class ;
+<http://example.org/openWEMI#relatedEndeavor>
+  a rdfs:Property ;
   rdfs:label "related endeavor"@en ;
   skos:definition "Another endeavor that is related in some way to an endeavor."@en ;
   rdfs:isDefinedBy <http://example.org/openWEMI#>  .
