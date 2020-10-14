@@ -12,7 +12,6 @@
 <http://example.org/openWEMI/>  a owl:Ontology ;
    rdfs:label  "openWEMI ontology" .
 
-
 <http://example.org/openWEMI#Endeavor>
   a owl:Class ;
   rdfs:label "endeavour"@en ;
@@ -46,7 +45,6 @@
   skos:definition "An exemplar of a single manifestation."@en ;
   rdfs:isDefinedBy <http://example.org/openWEMI#> ;
   rdfs:subClassOf <http://example.org/openWEMI#Endeavor>  .
-
 
 <http://example.org/openWEMI#ResponsibleEntity>
   a owl:Class ;
@@ -98,5 +96,3 @@
     <http://example.org/openWEMI#Manifestation>
          )
         ]  .
-    
-
