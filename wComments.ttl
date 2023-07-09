@@ -120,7 +120,7 @@
   rdfs:subPropertyOf <http://example.org/openWEMI/relatedEndeavor> ;
   rdfs:domain <http://example.org/openWEMI/Work> ;
   rdfs:range <http://example.org/openWEMI/Expression> ; 
-  rdfs:comment "A relationship asserted from a Work to an Expression; an Expression that expresses the Work."@en .
+  rdfs:comment "A relationship asserted from a Work to an Expression."@en .
 
 
 <http://example.org/openWEMI/manifests>
@@ -136,7 +136,8 @@
       <http://example.org/openWEMI/Work> 
       <http://example.org/openWEMI/Expression>
     )
-  ] .
+  ] ;
+rdfs:comment "A relationship asserted from a Manifestation to an Expression or a Work."@en .
 
 <http://example.org/openWEMI/manifestedBy>
   a rdfs:Property ;
@@ -152,7 +153,8 @@
        <http://example.org/openWEMI/Expression>
      )
     ] ;
-  rdfs:range <http://example.org/openWEMI/Manifestation> . 
+  rdfs:range <http://example.org/openWEMI/Manifestation> ;
+rdfs:comment "A relationship asserted from a Work or an Expression to a Manifestation."@en .
 
     
 <http://example.org/openWEMI/instantiates>
@@ -169,7 +171,8 @@
       <http://example.org/openWEMI/Expression>
       <http://example.org/openWEMI/Manifestation>
     )
-  ] .
+  ] ;
+rdfs:comment "A relationship asserted from an Item to a Manifestation, an Expression, or a Work."@en .
 
 
 <http://example.org/openWEMI/instantiatedBy>
@@ -187,5 +190,6 @@
        <http://example.org/openWEMI/Manifestation>
      )
     ] ;
-  rdfs:range <http://example.org/openWEMI/Item> . 
+  rdfs:range <http://example.org/openWEMI/Item> ;
+  rdfs:comment "A relationship asserted from a Work, an Expression, or a Manifestation to an Item."@en .
 
